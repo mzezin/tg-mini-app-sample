@@ -1,0 +1,29 @@
+{
+  "name": "tg-mini-app-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "dependencies": {
+    "concurrently": "^7.3.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "scripts": {
+    "build:client": "yarn workspace server build",
+    "build:server": "yarn workspace client build",
+    "build": "concurrently \"yarn build:client\" \"yarn build:server\"",
+    "dev:client": "yarn workspace client dev",
+    "dev:server": "yarn workspace server start:dev",
+    "dev": "concurrently \"yarn dev:client\" \"yarn dev:server\"",
+    "start:prod": "yarn workspace server start:prod"
+  },
+  "packageManager": "yarn@4.3.1"
+}
